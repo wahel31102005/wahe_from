@@ -1,181 +1,119 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+/* Men-disabled spinners pada input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-body{
-  height: 100%;
-  background-image: url(wlpp\ game.jpg);
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-/* Header */
-
-.menu-btn{
-  color: #424144;
-  font-size: 23px;
-  cursor: pointer;
-  display: none;
+body {
+  margin: 0;
+  padding: 10px;
+  background-image: url(pantai.jpg);
 }
 
-.navbar{
-    Padding: 20px 5%;
+.container {
+    margin: 20px auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background-color: #f3f4f6;
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
-}
-
-.navbar .logo h1{
-  color: #424144;
-  border-bottom: 4px solid#fd6561;
-}
-
-.navbar .menu li{
-  list-style : none;
-  display: inline-block;
-}
-
-.navbar menu li a{
-  display: block;
-  margin-left: 20px;
-  color: #424144;
-  border-bottom: 4px solid transparent;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
   
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-}
+  form {
+    background-color:aqua;
+    border-radius: 4px;
+    padding: 15px 25px;
+    width: 400px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+  }
 
-.navbar .menu li .active{
-  border-bottom: 4px solid #f63e4e;
-}
+  label {
+    display: block;
+  }
+  
+  input:not(#pesan, #hapus) {
+    margin-bottom: 8px;
+    width: 100%;
+    border: 1px solid #333;
+    padding: 3px 5px;
+    outline: none;
+  }
+  
+  input[disabled] {
+    cursor: not-allowed;
+    background-color: rgb(218, 218, 218);
+  }
 
-.navbar .menu li a i{
-color: #f63e4e;
-}
+  .tombol {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .tombol :is(#pesan, #hapus) {
+    cursor: pointer;
+  }
+  
+  .output {
+    display: none;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    color: white;
+  }
 
-.navbar .menu li a:hover {
-  border-bottom: 4px solid #f63e4e;
-}
+  .output h2 {
+    text-align: center;
+  }
+  
+  .output.tampil {
+    display: block;
+    animation: fade 300ms;
+  }
+  
+  .output p:last-child {
+    color: rgb(32, 175, 204);
+    font-weight: bold;
+    margin-top: 30px;
+  }
 
-/* Content */
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .informasi {
+    margin-top: 20px;
+    color: red;
+    display: flex;
+    flex-direction: column;
+  }
 
-.content{
-  background-image: url(shopping.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 0 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color:#424144;
-  height: 100vh;
-}
-
-.content h1{
-  font-size: 45px;
-  color: darkorange;
-}
-
-.content p{
-  font-size: 20px;
-  margin-top: 20px;
-}
-
-.content button{
-  margin-top: 30px;
-  padding: 15px 30px;
-  border: none;
-  background: #f63e4e;
-  color: white;
-  font-size: 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.pheading{
-  text-align: center;
-  margin: 50px 0;
-  color: greenyellow;
-}
-
-/* products */
-
-.sec{
-  padding: 10px 5%;
-
-}
-
-.products{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax,(320px, lfr));
-}
-
-.products .card{
-  width: 250px;
-  background: #f5f5f5;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-image: url(shoping.jfif);
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 20px;
-}
-
-.products .card img{
-  height: 250px;
-  width: 100%;
-}
-
-.products .card .desc{
-  padding: 5px 20px;
-  opacity: 0.8;
-}
-
-.products .card .title{
-  font-weight: 900;
-  font-size: 20px;
-  color: #424144;
-  padding: 0 20px;
-
-}
-
-.products .card .box{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-.products .card .box .price{
-  color: #f63e4e;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.products .card .box .btn{
-  font-size: 13px;
-  color: #f63e4e;
-  padding: 10px 18px;
-  font-weight: 900;
-  border: 1px solid #f63e4e;
-  border-radius: 20px;
-}
-
-.products .card .box .btn:hover{
-  cursor: pointer;
-  background-color: #f63e4e;
-  color: white;
-}
- 
-h5, p{
-    color: aqua;
-}
-.btn{
-    color: yellow;
-}
+  .informasi span:first-child {
+    margin-bottom: 10px;
+    font-size: inherit;
+  }
+  
+  .informasi span {
+    font-size: 0.95em;
+  }
+  
+  .informasi span > span {
+    color: rgb(13, 134, 182);
+    font-weight: bold;
+  }
